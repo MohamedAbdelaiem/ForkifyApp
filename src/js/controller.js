@@ -91,33 +91,33 @@ const controlBookMarksView=function(){
   bookMarksView.render(model.state.bookmarks);
 }
 
-const controlAddRecipe=async function(recipe){
-  //Show form
-  try{
-    AddRecipeView.renderSpinner();
-  await model.uploadRecipe(recipe);
-  console.log(model.state.recipess);
-  recipeView.render(model.state.recipess);
-  AddRecipeView.renderMessage();
-  bookMarksView.render(model.state.bookmarks);
+// const controlAddRecipe=async function(recipe){
+//   //Show form
+//   try{
+//     AddRecipeView.renderSpinner();
+//   await model.uploadRecipe(recipe);
+//   console.log(model.state.recipess);
+//   recipeView.render(model.state.recipess);
+//   AddRecipeView.renderMessage();
+//   bookMarksView.render(model.state.bookmarks);
 
-  //Change ID in url
-  window.history.pushState(null,'',`#${model.state.recipess.id}`);
-  location.reload();
-  setTimeout(function(){
-    AddRecipeView.toggleWindow()
-  },2.5);
+//   //Change ID in url
+//   window.history.pushState(null,'',`#${model.state.recipess.id}`);
+//   location.reload();
+//   setTimeout(function(){
+//     AddRecipeView.toggleWindow()
+//   },2.5);
 
 
 
-  }
-  catch(err){
-    AddRecipeView.renderError(err.message);
-  }
+//   }
+//   catch(err){
+//     AddRecipeView.renderError(err.message);
+//   }
 
   
 
-}
+// }
 
 const init = async function () {
   bookMarksView.addHandlerRender(controlBookMarksView);
@@ -126,7 +126,7 @@ const init = async function () {
    recipeView.addHandlerBookMark(controlBookMark);
    paginationView.addHandlerClick(ControlPagination);
    recipeView.addHandlerRender(controleRecipe);
-   AddRecipeView.addHandlerUpload(controlAddRecipe);
+  //  AddRecipeView.addHandlerUpload(controlAddRecipe);
 
 };
 
